@@ -46,10 +46,13 @@ activate :blog do |blog|
   # blog.per_page = 10
   # blog.page_link = "page/{num}"
   #
+  #
+end
+
+activate :deploy do |deploy|
   deploy.method = :git
   deploy.branch = "master"
   deploy.build_before = true
-  #
 end
 
 activate :directory_indexes
