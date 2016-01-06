@@ -1,0 +1,120 @@
+h1, h2, h3, h4, h5, h6,
+p, span, strong, em,
+body {
+  color: #222;
+  font-size: 1em;
+  font-weight: normal;
+  font-family: Verdana;
+  line-height: 1.6em;
+}
+
+html, body {
+  background-color: white;
+}
+a:-webkit-any-link,
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: tomato;
+}
+
+a:visited {
+  color: tomato;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer,
+aside,
+.main {
+  max-width: 700px;
+  margin: auto;
+}
+
+.main {
+  margin-bottom: 5em;
+}
+
+footer {
+  font-size: 0.8em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin-top: 6em;
+  margin-bottom: 5em;
+}
+
+h1 {
+  margin-bottom: 1em;
+}
+
+#logotype {
+  padding: 1em;
+  margin-top: 0;
+  margin-bottom: 5em;
+}
+
+#logotype a:link,
+#logotype a:active,
+#logotype a:visited {
+  text-decoration: none;
+}
+
+#logotype a:hover {
+  text-decoration: underline;
+}
+
+pre {
+  background-color: rgba(0,0,0,.1);
+  overflow-x: scroll;
+  padding: 2em;
+}
+
+pre code {
+  background-color: transparent;
+}
+
+code {
+  background-color: rgba(0,0,0,.1);
+  padding: 0  0.25em;
+}
+
+blockquote,
+pre,
+p {
+  margin-top: 0;
+  margin-bottom: 2em;
+}
+
+blockquote {
+  border-left: 3px solid tomato;
+  font-size: 0.9em;
+  margin: 1em 1em 1em 0.5em;
+  padding: 1em 1em 1px 1.5em;
+}
+aside h2,
+.articles h2 {
+  margin: 0 0 2em;
+}
+
+.articles span {
+  float: left;
+  margin-right: 0.4em;
+}
+
+@media all and (max-width: 700px) {
+  h1, h2, h3, h4, h5, h6,
+  p {
+    padding: 2em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 2em 0;
+  }
+}
