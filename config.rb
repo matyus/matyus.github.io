@@ -31,8 +31,8 @@ activate :blog do |blog|
   # blog.sources = "{year}-{month}-{day}-{title}.html"
   # blog.taglink = "tags/{tag}.html"
   # blog.layout = "layout"
-  blog.summary_separator = /(READMORE)/
-  blog.summary_length = 250
+  # blog.summary_separator = /(READMORE)/
+  # blog.summary_length = 250
   # blog.year_link = "{year}.html"
   # blog.month_link = "{year}/{month}.html"
   # blog.day_link = "{year}/{month}/{day}.html"
@@ -49,20 +49,20 @@ activate :blog do |blog|
   #
 end
 
-require_relative "./lib/build_cleaner"
+#require_relative "./lib/build_cleaner"
 
-configure :build do
-  activate :relative_assets
-  activate :build_cleaner
-end
+#configure :build do
+  #activate :relative_assets
+  #activate :build_cleaner
+#end
 
-activate :deploy do |deploy|
-  deploy.method = :git
-  deploy.branch = "master"
-  deploy.build_before = true
-end
+#activate :deploy do |deploy|
+  #deploy.method = :git
+  #deploy.branch = "master"
+  #deploy.build_before = true
+#end
 
-activate :directory_indexes
+#activate :directory_indexes
 
 page "/feed.xml", layout: false
 # Reload the browser automatically whenever files change
