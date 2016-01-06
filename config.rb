@@ -49,6 +49,13 @@ activate :blog do |blog|
   #
 end
 
+require_relative "./lib/build_cleaner"
+
+configure :build do
+  activate :relative_assets
+  activate :build_cleaner
+end
+
 activate :deploy do |deploy|
   deploy.method = :git
   deploy.branch = "master"
