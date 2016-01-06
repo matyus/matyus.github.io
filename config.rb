@@ -49,20 +49,7 @@ activate :blog do |blog|
   #
 end
 
-#require_relative "./lib/build_cleaner"
-
-#configure :build do
-  #activate :relative_assets
-  #activate :build_cleaner
-#end
-
-#activate :deploy do |deploy|
-  #deploy.method = :git
-  #deploy.branch = "master"
-  #deploy.build_before = true
-#end
-
-#activate :directory_indexes
+activate :directory_indexes
 
 page "/feed.xml", layout: false
 # Reload the browser automatically whenever files change
