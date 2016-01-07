@@ -1,16 +1,15 @@
 ---
 title: Setup Github Pages with Middleman
+description: How to use Middleman for a GitHub user page.
 date: 2016-01-07
 tags: github, github pages, middleman
 ---
 
 # Setup Github Pages with Middleman
 
-There are two reasons why I like Middleman more than Jekyll:
+The main reason why I like Middleman more than Jekyll is that Middleman is significantly more **modular**. By default Middleman is not a "blogging" framework, but in the event that you want to make a website specifically for blogging, there's a gem that you can add, aptly named [`middleman-blog`](https://github.com/middleman/middleman-blog).
 
-1. Middleman is significantly more **simple, modular, friendly, and hackable**. Middleman has a gem specifically for blogging (`middleman-blog`) which is gives you a ton of flexibility.
-
-2. **Jekyll is specifically "blog aware"**, meaning that if you want to build something besides a blog, have to undo a lot of the default behavior when you `init` a project.
+The Middleman community is pretty active, and you'll find there's a [growing list](https://directory.middlemanapp.com/#/extensions/all/) of extensions.
 
 
 ## Github User Pages vs. Project Pages

@@ -1,5 +1,6 @@
 ---
 title: Raspberry Pi Public Web Server
+description: How to set up a globally accessible Rails app on a Raspberry Pi.
 date: 2016-01-06
 tags: raspberry pi, raspbian, ruby on rails
 ---
