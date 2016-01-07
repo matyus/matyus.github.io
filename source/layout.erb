@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="description" content="Figuring out how things work.">
-    <meta name="keywords" content="software engineer, ui engineer, front-end developer">
+    <meta name="keywords" content="software engineer, ui engineer, front-end developer, design, ux design, product design, interface engineering">
     <meta name="author" content="Michael Matyus">
 
     <meta name="format-detection" content="telephone=no">
@@ -41,6 +41,7 @@
     </main>
 
     <footer role="contentinfo">
+      <%= content_tag(:p,  "Article last modified: %s" % File.mtime(current_article.source_file).strftime("%a %b %e %r %Y")) unless current_article.nil? %>
       <p><a href="mailto:michael@maty.us">Contact me</a> with any questions or comments.</p>
     </footer>
 
