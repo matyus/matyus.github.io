@@ -29,19 +29,20 @@ a:hover {
   text-decoration: underline;
 }
 
-main h1 {
-  margin-top: 0;
-}
 
 footer,
 aside,
-.main {
+main {
   max-width: 700px;
   margin: auto;
 }
 
-.main {
-  margin-bottom: 5em;
+main {
+  margin-bottom: 8em;
+}
+
+main h1 {
+  margin-top: 0;
 }
 
 footer {
