@@ -8,9 +8,9 @@ tags: github, github pages, middleman
 
 # Setup Github Pages with Middleman
 
-The main reason why I like Middleman more than Jekyll is that Middleman is significantly more **modular**. By default Middleman is not a "blogging" framework, but in the event that you want to make a website specifically for blogging, there's a gem that you can add, aptly named [`middleman-blog`](https://github.com/middleman/middleman-blog).
+The main reason why I'm using Middleman instead of Jekyll is that Middleman is significantly more *modular*. By default Middleman is just a static site generator that you can use to build any kind of website. However, if you're going to use it for blogging, there's a gem that you can add, aptly named [`middleman-blog`](https://github.com/middleman/middleman-blog), which will set you up with the fundamental parts of a blog: layouts for calendars, tags, and obviously posts. (Jekyll sets you up with all of the blog-awareness even if you don't necessarily want it.)
 
-The Middleman community is pretty active, and you'll find there's a [growing list](https://directory.middlemanapp.com/#/extensions/all/) of extensions.
+The Middleman community is pretty active, and you'll find there's a [growing list](https://directory.middlemanapp.com/#/extensions/all/) of extensions. For instance, setting up syntax highlighting for code samples (like in this blog post) was extremely easy with the [`middleman-syntax`](https://github.com/middleman/middleman-syntax) gem.
 
 
 ## Github User Pages vs. Project Pages
@@ -21,14 +21,14 @@ It's easier to understand if you just look how I setup my project:
 
 Compare the structure of my [Master](https://github.com/matyus/matyus.github.io/tree/master) branch with my [Dev](https://github.com/matyus/matyus.github.io/tree/dev) branch.
 
-## Gems can do all of this for you!
+## But don't gems exist for this?
 
 Only if you use a version that's less than `Middleman v4`  then the gems `middleman-deploy` and `middleman-gh-pages` will not work.
 
 
 ## Setup
 
-Using my repo as an example, keep two copies of the repo side-by-side like so:
+Using my repo as an example, I keep two copies of the repo side-by-side like so:
 
 ```bash
 # container for everything
@@ -52,8 +52,7 @@ When you're done, it should reflect this:
 |   `- deploy.sh
 ```
 
-What's going on is that `blog-deploy` is an orphaned copy of `blog-source`. The deploy folder **only ever has the built files as the root of the project** while the source folder only ever needs to be on the `dev` branch. Dev is where you run `middleman build`.
-
+What's going on is that `blog-deploy` is an orphaned copy of `blog-source`. The `deploy` folder **only ever has the built files as the root of the project** while the `source` folder only ever needs to be on the `dev` branch. Dev is where you run `middleman build` so that you can then copy those built files to the root of `master`.
 
 ## Deploying
 
@@ -79,10 +78,18 @@ git commit -m "$1"
 git push origin master
 ```
 
+So when I'm ready to deploy, I run it like this:
+
+```bash
+$ cd my-blog/
+
+# commit message must be in quotes.
+$ ./deploy.sh "this is my commit message"
+```
 
 ## Process Recap
 
-What I do is keep my working files on a branch called `dev`, and when I'm done with my update I just run `middleman build` and then run the `deploy.sh` script which copies those built files into `blog-deploy` and commits them to `master`.
+What I do is keep my working files on a branch called `dev`, and when I'm done with my update I just run `middleman build` and then `cd ..` and run the `deploy.sh` script which copies those built files in `blog-source` to  `blog-deploy` and commits them to `master`.
 
 ## Feedback
 

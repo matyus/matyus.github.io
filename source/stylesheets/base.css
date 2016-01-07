@@ -7,6 +7,14 @@ body {
   line-height: 1.6;
 }
 
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
 html, body {
   color: #222;
   background-color: white;
