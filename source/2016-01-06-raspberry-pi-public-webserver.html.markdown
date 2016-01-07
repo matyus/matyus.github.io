@@ -66,7 +66,7 @@ Depending on your service plan, you may have to upgrade your access to actually 
 > In order to manage Port 25, Port 80 or Dynamic DNS, you must subscribe to Optimum Online Ultra 50, Optimum Online Ultra 75 or Optimum Online Ultra 101. Please visit optimum.com for more information or to upgrade your service.
 
 Unfortunately I'm the cheapskate who needs to upgrade to _Optimum Online Ultra 50_.
-is is an example article. You probably want to delete it and write your own articles!
 
+Stay tuned…
 
 
