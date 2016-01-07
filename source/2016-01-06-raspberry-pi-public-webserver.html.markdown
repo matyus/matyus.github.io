@@ -65,18 +65,36 @@ We now have to enter the wonderful world of Optimum Online. If you're like me an
 
 Optimum, for some strange reason, went through all the trouble of providing a complete web interface for your router. What happens is when you visit `http://192.168.1.1` to access your Wifi config, it redirects you to an Optimum.net login screen where you can adjust the settings from.
 
-What you need to do when you get to this landing page is navigate to `Router Settings > Advanced Settings > Advanced Settings > Port Manangement`. We're going to setup is **Portforwarding** so that you can tell your Modem that all Web requests go to the same place (the Rails server on the Pi).
+From the menu in the left hand column, navigate to `Router Settings > Advanced Settings > Port Manangement` and setup **Port Forwarding** so that you can tell your Modem that all Web requests go to the same place (the Rails server on the Pi).
+
+![Screenshot of Optimum's Port Management screen](2016-01-06-raspberry-pi-public-webserver/optimum-port-management.png)
 
 Click "Add Port Forwarding Rule" to set it up so that the "Service" changes from "User-Defined Service" to "HTTP Web Access", this setting will bake in forwarding for ports 80, 8000, 8080, 8888, and 3127. Then change "Select a Host" to "`raspberrypi | MAC ADDRESS | IP ADDRESS`". Also update "Locate Device By" to "Host Name" radio button. Then save your changes.
 
-Depending on your service plan, you may have to upgrade your access to actually gain control of ports 25 and 80. I found this out the hard way when I wandered onto a product page for [Port Configuration/Dynamic DNS service](https://www.optimum.net/internet/boost/):
+Depending on your service plan, you may have to upgrade your access to actually gain control of ports 25 and 80. I found this out the hard way when I wandered onto a product page for [Port Configuration/Dynamic DNS service](https://www.optimum.net/internet/boost/)\*:
 
 > You do not currently have access to these features.
 >
 > In order to manage Port 25, Port 80 or Dynamic DNS, you must subscribe to Optimum Online Ultra 50, Optimum Online Ultra 75 or Optimum Online Ultra 101. Please visit optimum.com for more information or to upgrade your service.
 
-Unfortunately I'm the cheapskate who needs to upgrade to _Optimum Online Ultra 50_.
+Unfortunately I'm the cheapskate who needed to upgrade to _Optimum Online Ultra 50_… but an extra $5/month is something I can live with.
 
-Stay tuned…
+## Enabling Port 80
 
+Once you've upgraded (or if you already have a plan that supports opening port 80), head over to the [Port Configuration/Dynamic DNS](https://www.optimum.net/internet/boost/) web page and toggle Port 80 from Off to On.
+
+![Screenshot of Optimum's Port Management screen](2016-01-06-raspberry-pi-public-webserver/optimum-port-configuration.png)
+
+This action will reboot the modem in your house in order for the change to take effect. Once that's done, you should be able to to visit your IP address from anywhere!
+
+
+## TL;DR
+
+- Install Ruby via RVM
+- Install Rails
+- Run `rvmsudo bundle exec rails s -b 0.0.0.0 -p 80` from the Rails app on your Pi
+- Enable Port forwarding on your Wifi router to point to the IP address (ie. 192.168.1.2) of your Pi
+- Open port 80 on your modem*
+
+_\*This may be specifically an Optimum online step_
 
