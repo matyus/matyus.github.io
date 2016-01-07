@@ -1,14 +1,14 @@
 h1, h2, h3, h4, h5, h6,
 p, span, strong, em,
 body {
-  color: #222;
   font-size: 1em;
   font-weight: normal;
   font-family: Verdana;
-  line-height: 1.6em;
+  line-height: 1.6;
 }
 
 html, body {
+  color: #222;
   background-color: white;
 }
 a:-webkit-any-link,
@@ -72,18 +72,13 @@ h1 {
 }
 
 pre {
-  background-color: rgba(0,0,0,.1);
   overflow-x: scroll;
-  padding: 2em;
 }
 
 pre code {
-  background-color: transparent;
 }
 
 code {
-  background-color: rgba(0,0,0,.1);
-  padding: 0  0.25em;
 }
 
 blockquote,

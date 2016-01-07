@@ -1,5 +1,6 @@
 ---
 title: Setup Github Pages with Middleman
+published: false
 description: How to use Middleman for a GitHub user page.
 date: 2016-01-07
 tags: github, github pages, middleman
@@ -29,24 +30,27 @@ Only if you use a version that's less than `Middleman v4`  then the gems `middle
 
 Using my repo as an example, keep two copies of the repo side-by-side like so:
 
-    # container for everything
-    $ mkdir my-blog/
+```bash
+# container for everything
+$ mkdir my-blog/
 
-    $ cd my-blog/
+$ cd my-blog/
 
-    $ git clone git@github.com:matyus/matyus.github.io.git blog-source
-    # then checkout this folder on the dev branch
+$ git clone git@github.com:matyus/matyus.github.io.git blog-source
+# then checkout this folder on the dev branch
 
-    $ git clone git@github.com:matyus/matyus.github.io.git blog-deploy
-    # keep this folder on the master branch
-
+$ git clone git@github.com:matyus/matyus.github.io.git blog-deploy
+# keep this folder on the master branch
+```
 
 When you're done, it should reflect this:
 
-    |- my-blog/
-    |   |- blog-source/ #dev branch
-    |   |- blog-deploy/ #master branch
-    |   `- deploy.sh
+```bash
+|- my-blog/
+|   |- blog-source/ #dev branch
+|   |- blog-deploy/ #master branch
+|   `- deploy.sh
+```
 
 What's going on is that `blog-deploy` is an orphaned copy of `blog-source`. The deploy folder **only ever has the built files as the root of the project** while the source folder only ever needs to be on the `dev` branch. Dev is where you run `middleman build`.
 
@@ -56,22 +60,24 @@ What's going on is that `blog-deploy` is an orphaned copy of `blog-source`. The 
 Below is my deploy script:
 
 
-    #!/bin/bash
+```bash
+#!/bin/bash
 
-    # copy the files from the latest build/ directory into empty folder:
-    cp -Rv blog-source/build/* blog-deploy/
+# copy the files from the latest build/ directory into empty folder:
+cp -Rv blog-source/build/* blog-deploy/
 
-    # change-directory into the deploy folder
-    cd blog-deploy/
+# change-directory into the deploy folder
+cd blog-deploy/
 
-    # add all the file changes and make a commit
-    git add --all
+# add all the file changes and make a commit
+git add --all
 
-    # this script requires a commit message
-    git commit -m "$1"
+# this script requires a commit message
+git commit -m "$1"
 
-    # push changes and then check <username>.github.io
-    git push origin master
+# push changes and then check <username>.github.io
+git push origin master
+```
 
 
 ## Process Recap

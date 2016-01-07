@@ -16,13 +16,16 @@ The Ruby Version Manager is worthwhile for two reasons: you have an easy way to 
 
 Install `rvm` in Single-User Mode because then you won't have to worry about prefixing `sudo` every time you `gem install <some-gem>`. The [RVM Install](https://rvm.io/rvm/install) suggests installing it, and then adding the execution path to your `.bash_profile`, if you're using something like ZSH, then you're probably savvy enough to know that you're going to have to change `.bash_profile` to `.profile` or even `.zshrc` in the example:
 
-    \curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles
-    echo "source $HOME/.rvm/scripts/rvm" >> ~/.bash_profile
+```bash
+\curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles
+echo "source $HOME/.rvm/scripts/rvm" >> ~/.bash_profile
+```
 
 The run the `rvm` command in your terminal to make sure it's working. The next thing I do is install the latest stable version of ruby (at the time of writing, it is `v2.3.0`).
 
-    rvm install 2.3.0 --default
-
+```bash
+rvm install 2.3.0 --default
+```
 
 You'll notice that installing and compiling Ruby like this takes forever on a Raspberry Pi…
 
@@ -30,7 +33,9 @@ You'll notice that installing and compiling Ruby like this takes forever on a Ra
 
 When I ran `gem install rails` it took forever, and then got hung up at the end when it was building the docs for the rails gem. So, if you don't want to risk that happening, build it without the docs:
 
-    gem install rails --no-ri --no-rdoc
+```bash
+gem install rails --no-ri --no-rdoc
+```
 
 Once that's done, you're ready to create a new rails app.
 
@@ -38,11 +43,15 @@ Once that's done, you're ready to create a new rails app.
 
 Normally, to run a server in development, it's perfectly acceptable to run `bundle exec rails server`, but the default port `3000` isn't useful unless you're on localhost. Port `80` is where public servers run, and as a safety precaution, running `bundle exec rails server -p 80` will get an error that contains this information:
 
-    /home/pi/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/socket.rb:205:in `bind': Permission denied - bind(2) for 127.0.0.1:80 (Errno::EACCES)
+```bash
+/home/pi/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/socket.rb:205:in `bind': Permission denied - bind(2) for 127.0.0.1:80 (Errno::EACCES)
+```
 
 So that's where `rvmsudo` comes into play:
 
-    rvmsudo bundle exec rails s -b 0.0.0.0 -p 80
+```bash
+rvmsudo bundle exec rails s -b 0.0.0.0 -p 80
+```
 
 `rvmsudo` is better than `sudo` because it carries all the ruby environment variables along with it. `-b` binds to any IP, and `-p` opens port 80. [More info](http://ruby.about.com/od/rubyversionmanager/qt/Rvm-And-Sudo.htm)
 
