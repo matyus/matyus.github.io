@@ -1,6 +1,5 @@
 ---
 title: Setup Github Pages with Middleman
-published: false
 description: How to use Middleman for a GitHub user page.
 date: 2016-01-07
 tags: github, github pages, middleman
