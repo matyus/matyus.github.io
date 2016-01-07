@@ -31,11 +31,13 @@
     <%= stylesheet_link_tag "base" %>
   </head>
   <body>
-    <h1 id="logotype"><a href="/" title="Home"><%= data.base.name %></a></h1>
-
-    <div id="main" class="main" role="main">
-      <%= yield %>
+    <div id="header" role="banner">
+      <h1 id="logotype"><a href="/" title="Home"><%= data.base.name %></a></h1>
     </div>
+
+    <main id="main" class="main" role="main">
+      <%= yield %>
+    </main>
 
     <footer role="contentinfo">
       <p><a href="mailto:michael@maty.us">Contact me</a> with any questions or comments.</p>
