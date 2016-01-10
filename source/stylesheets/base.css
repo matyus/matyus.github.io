@@ -76,6 +76,11 @@ h1 {
   font-size: 1.2em;
 }
 
+#header:after {
+  content: "\0020";
+  display: table;
+}
+
 #logotype {
   font-size: 1em;
   padding: 1em;

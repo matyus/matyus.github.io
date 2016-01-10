@@ -4,13 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="Figuring out how things work.">
-    <meta name="keywords" content="software engineer, ui engineer, front-end developer, design, ux design, product design, interface engineering">
-    <meta name="author" content="Michael Matyus">
+    <meta name="description" content="<%= data.base.meta_description %>">
+    <meta name="keywords" content="<%= data.base.meta_keywords %>">
+    <meta name="author" content="<%= data.base.full_name %>">
 
     <meta name="format-detection" content="telephone=no">
 
-    <meta property="og:site_name" content="Matyus">
+    <meta property="og:site_name" content="<%= data.base.name %>">
     <meta property="og:locale" content="en_US">
     <meta property="og:title" content="<%= data.base.name %><%= ' - ' + current_article.title unless current_article.nil? %>">
     <meta property="og:url" content="<%= data.base.url %>">
@@ -33,7 +33,7 @@
   </head>
   <body>
     <div id="header" role="banner">
-      <h1 id="logotype"><a href="/" title="Home"><%= data.base.name %></a></h1>
+      <h1 id="logotype"><% link_to "#{blog.options.prefix.to_s}/", :title => "Home" do %><%= data.base.name %><% end %></h1>
     </div>
 
     <main id="main" class="main" role="main">
@@ -42,7 +42,10 @@
 
     <footer role="contentinfo">
       <%= content_tag(:p,  "Article last modified: %s" % File.mtime(current_article.source_file).strftime("%a %b %e %r %Y")) unless current_article.nil? %>
-      <p><a href="mailto:michael@maty.us">Contact me</a> with any questions or comments.</p>
+
+      <% content_tag :p  do -%>
+        <%= mail_to "michael@maty.us", "Contact me" %> with any questions or comments.
+      <% end -%>
     </footer>
 
     <script>
